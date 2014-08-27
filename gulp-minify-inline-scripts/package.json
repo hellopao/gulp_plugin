@@ -1,0 +1,35 @@
+{
+  "name": "gulp-minify-inline-scripts",
+  "version": "0.0.1",
+  "description": "minify inline scripts in html files",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hellopao/gulp_plugin"
+  },
+  "author": {
+    "name": "qinjia",
+    "email": "qinjia@outlook.com"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "gulpplugin",
+    "inline scripts",
+    "uglify",
+    "minify"
+  ],
+  "dependencies": {
+    "gulp-util": "^3.0.0",
+    "through2": "^0.6.1",
+    "uglify-js":"^2.4.15"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/hellopao/gulp_plugin",
+  "_id": "gulp-minify-inline-scripts@0.2.0",
+  "_from": "gulp-minify-inline-scripts@"
+}
