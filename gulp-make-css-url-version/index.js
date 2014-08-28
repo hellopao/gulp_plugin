@@ -54,6 +54,12 @@ module.exports = function (options) {
             return cb();
         }
 
+        //html file only
+        if (!/^\.css?$/.test(path.extname(file.path))) {
+            this.emit('error', new gutil.PluginError(PLUGIN_NAME, 'support css file only'));
+            return cb();
+        }
+
         var html = file.contents.toString();
 
         var promises = [];
@@ -68,7 +74,8 @@ module.exports = function (options) {
 
             //use date as the version
             if (options.useDate) {
-                return "url(" + url + "?v=" + (options.format ? formatDate(options.format, Date.now()) : Date.now()) + ")";
+                var format = options.format || "yyyy-MM-dd";
+                return "url(" + url + "?v=" + formatDate(format, Date.now()) + ")";
             }
 
             //use md5
