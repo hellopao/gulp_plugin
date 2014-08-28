@@ -72,9 +72,10 @@ module.exports = function (options) {
                 return str;
             }
 
+            var format = options.format || "yyyy-MM-dd";
+
             //use date as the version
             if (options.useDate) {
-                var format = options.format || "yyyy-MM-dd";
                 return "url(" + url + "?v=" + formatDate(format, Date.now()) + ")";
             }
 
@@ -94,7 +95,7 @@ module.exports = function (options) {
                 }, function (e) {
                     return {
                         key: tempKey,
-                        value: "url(" + url + "?v=" + Date.now()
+                        value: "url(" + url + "?v=" + formatDate(format, Date.now())
                     };
                 });
 
