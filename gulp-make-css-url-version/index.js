@@ -80,19 +80,20 @@ module.exports = function (options) {
             }
 
             //use md5
-            var imageFilePath = path.resolve(path.dirname(file.path), url);
+            var imageFilePath = path.resolve(path.dirname(file.path), url.replace(/#[\s\S]*$/,''));
 
             var tempKey = Math.random().toString();
             var readFile = Q.denodeify(fs.readFile);
 
             var promise = readFile(imageFilePath)
                 .then(function (data) {
-                    gutil.log('replacing image ' + imageFilePath + ' version in css file: ' + file.path);
+                    //gutil.log('replacing image ' + imageFilePath + ' version in css file: ' + file.path);
                     return {
                         key: tempKey,
                         value: "url(" + url + "?v=" + encodeURIComponent(getMD5(data.toString())) + ")"
                     };
                 }, function (e) {
+                    gutil.log(e);
                     return {
                         key: tempKey,
                         value: "url(" + url + "?v=" + formatDate(format, Date.now())
