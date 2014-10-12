@@ -88,15 +88,16 @@ module.exports = function (options) {
             var promise = readFile(imageFilePath)
                 .then(function (data) {
                     //gutil.log('replacing image ' + imageFilePath + ' version in css file: ' + file.path);
+                    var verStr = data ? encodeURIComponent(getMD5(data.toString())) : formatDate(format);
                     return {
                         key: tempKey,
-                        value: "url(" + url + "?v=" + encodeURIComponent(getMD5(data.toString())) + ")"
+                        value: "url(" + url + "?v=" + verStr + ")"
                     };
                 }, function (e) {
                     gutil.log(e);
                     return {
                         key: tempKey,
-                        value: "url(" + url + "?v=" + formatDate(format, Date.now())
+                        value: "url(" + url + "?v=" + formatDate(format) + ")"
                     };
                 });
 
