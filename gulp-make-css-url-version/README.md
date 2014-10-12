@@ -32,4 +32,22 @@ useDate :make version with time stamp
     });
 </pre>
 
+###Example
+
+before: index.css
+
+<pre>
+/* loading */
+.i-loading{width:32px;height:32px;background:url(../images/loading.gif) no-repeat;}    
+</pre>
+
+after: index.css
+
+<pre>
+/* loading */
+.i-loading{width:32px;height:32px;background:url(../images/loading.gif?v=Je0sUcMH0mhJPWdZdpHzXg%3D%3D) no-repeat}
+</pre>
+
+
+
 

@@ -17,3 +17,52 @@ gulp.task('minify', function() {
     .pipe(gulp.dest('dist'))
 });
 </pre>
+
+###Example
+
+before: index.html
+
+<pre>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title></title>
+</head>
+<body>
+    <input type="button" id="btn" value="click Me" />
+
+    <script type="text/javascript">
+        var btn = document.querySelector("#btn");
+
+        btn.onclick = function() {
+            this.style.background = ["yellow","red","green","purple","pink","gray","blue","orange","black","cyan"][Math.floor(Math.random() * 10)];
+        };
+
+        setInterval(function() {
+            console.log(btn.style.background);
+        },1000)
+
+    </script>
+</body>
+</html>
+
+</pre>
+
+after:index.html
+
+<pre>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title></title>
+</head>
+<body>
+    <input type="button" id="btn" value="click Me" />
+
+    <script type="text/javascript">var btn=document.querySelector("#btn");btn.onclick=function(){this.style.background=["yellow","red","green","purple","pink","gray","blue","orange","black","cyan"][Math.floor(10*Math.random())]},setInterval(function(){console.log(btn.style.background)},1e3);</script>
+</body>
+</html>
+
+</pre>
