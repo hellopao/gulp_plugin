@@ -1,0 +1,36 @@
+{
+  "name": "gulp-utf8-convert",
+  "version": "0.0.1",
+  "description": "convert file encoding to utf8",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hellopao/gulp_plugin"
+  },
+  "author": {
+    "name": "qinjia",
+    "email": "qinjia@outlook.com"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "gulpplugin",
+    "file encoding",
+    "utf8 convert"
+  ],
+  "dependencies": {
+    "gulp-util": "^3.0.0",
+    "through2": "^0.6.1",
+    "is-utf8":"^0.2.0",
+    "iconv-lite":"^0.4.4",
+    "jschardet":"^1.0.0"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/hellopao/gulp_plugin",
+  "_id": "gulp-utf8-convert@0.0.1",
+  "_from": "gulp-utf8-convert@"
+}
