@@ -39,10 +39,9 @@ module.exports = function(options) {
 			} catch(e) {
                 gutil.log('convert encoding to utf8 failed : ' + e);
 			}
-
-			this.push(file);
 		}
 
+        this.push(file);
 		cb();
 	});
 };
