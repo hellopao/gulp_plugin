@@ -1,0 +1,33 @@
+{
+  "name": "gulp-require-tpl2js",
+  "version": "0.0.1",
+  "description": "convert tpl file content to js for requirejs",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hellopao/gulp_plugin"
+  },
+  "author": {
+    "name": "qinjia",
+    "email": "qinjia@outlook.com"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "gulpplugin",
+    "tpl2js",
+    "requirejs tpl"
+  ],
+  "dependencies": {
+    "gulp-util": "^3.0.0",
+    "through2": "^0.6.1"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/hellopao/gulp_plugin",
+  "_id": "gulp-require-tpl2js@0.0.1",
+  "_from": "gulp-require-tpl2js@"
+}
