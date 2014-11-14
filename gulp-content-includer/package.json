@@ -1,0 +1,35 @@
+{
+  "name": "gulp-content-includer",
+  "version": "0.0.1",
+  "description": "include files",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hellopao/gulp_plugin"
+  },
+  "author": {
+    "name": "qinjia",
+    "email": "qinjia@outlook.com"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "gulpplugin",
+    "content includer",
+    "include files"
+  ],
+  "dependencies": {
+    "gulp-util": "^3.0.0",
+    "through2": "^0.6.1",
+    "guid": "^0.0.12",
+    "bluebird": "^2.3.11"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/hellopao/gulp_plugin",
+  "_id": "gulp-content-includer@0.0.1",
+  "_from": "gulp-content-includer@"
+}

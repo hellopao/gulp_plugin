@@ -18,3 +18,7 @@ convert file encoding to utf8
 ###gulp-require-tpl2js
 
 convert tpl files content to js for requirejs
+
+###gulp-content-includer
+
+include files
