@@ -44,6 +44,8 @@ module.exports = function (options) {
         options = options || {};
         var self = this;
 
+        var fileName = file.path.split(path.sep).pop();
+
         if (file.isNull()) {
             this.push(file);
             return cb();
@@ -54,9 +56,10 @@ module.exports = function (options) {
             return cb();
         }
 
-        //html file only
+        //css file only
         if (!/^\.css?$/.test(path.extname(file.path))) {
-            this.emit('error', new gutil.PluginError(PLUGIN_NAME, 'support css file only'));
+            gutil.log(gutil.colors.red('[WARN] file ' + fileName + ' is not a css file'));
+            this.push(file);
             return cb();
         }
 

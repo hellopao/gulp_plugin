@@ -21,9 +21,12 @@ module.exports = function (options) {
             return cb();
         }
 
+        var fileName = file.path.split(path.sep).pop();
+
         //html file only
         if (!/^\.html?$/.test(path.extname(file.path))) {
-            this.emit('error', new gutil.PluginError(PLUGIN_NAME, 'support html file only'));
+            gutil.log(gutil.colors.red('[WARN] file ' + fileName + ' is not a html file'));
+            this.push(file);
             return cb();
         }
 
