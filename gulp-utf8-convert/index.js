@@ -26,7 +26,10 @@ module.exports = function(options) {
 
         var fileName = file.path.split(path.sep).pop();
 
-		if (!isUtf8(file.contents)) {
+        //todo use text file detect
+        var isTextFile = /^\.(js|ts|coffee|css|less|sass|html?|tpl|txt|xml|json|ejs|jade)$/.test(path.extname(fileName));
+
+		if (isTextFile && !isUtf8(file.contents)) {
 			try {
                 var encInfo = jschardet.detect(file.contents);
                 gutil.log(gutil.colors.red('[WARN] file ' + fileName + ' is not encoded in utf-8, it may be encoded in ' + encInfo.encoding));
