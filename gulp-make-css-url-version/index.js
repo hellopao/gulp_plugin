@@ -79,7 +79,7 @@ module.exports = function (options) {
 
             //use date as the version
             if (options.useDate) {
-                return "url(" + url + "?v=" + formatDate(format, Date.now()) + ")";
+                return "url(" + url + "?v=" + formatDate(format, new Date()) + ")";
             }
 
             //use md5
