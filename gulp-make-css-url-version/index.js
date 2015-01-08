@@ -70,6 +70,7 @@ module.exports = function (options) {
         html = html.replace(/url\("?([^\)"]+)"?\)/g, function (str, url) {
 
             url = url.replace(/\?[\s\S]*$/, "").trim();
+            url = url.replace(/['"]*/g, "");
 
             if (url.indexOf("base64,") > -1 || url.indexOf("http://") > -1 || url.indexOf("/") == 0) {
                 return str;
