@@ -22,7 +22,6 @@ var createHash = function (file,len) {
 
 module.exports = function(options) {
 	return through.obj(function(file, enc, cb) {
-		var self = this;
 
         options = options || {};
 
@@ -45,18 +44,24 @@ module.exports = function(options) {
                 src = src.replace(/\?[\s\S]+$/,'');
 
                 var assetPath = path.join(filePath,src);
+                
+                if (src.indexOf('/') == 0) {
+                    assetPath = (options.rootPath || "") + src;
+                }
 
                 if (fs.existsSync(assetPath)) {
 
                     var buf = fs.readFileSync(assetPath);
 
                     var md5 = createHash(buf,options.hashLen || 7);
-
-                    src = src.replace(/(\.[^\.]+)$/, (options.verConnecter || "_") + md5 + "$1");
+                    
+                    var verStr = (options.verConnecter || "-") + md5;
+                    
+                    src = src.replace(verStr,'').replace(/(\.[^\.]+)$/, verStr + "$1");
                 }
                 
                 return tag + '"' + src + '"';
-            })
+            });
         }
 
         file.contents = new Buffer(content);

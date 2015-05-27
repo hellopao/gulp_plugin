@@ -1,6 +1,6 @@
 {
   "name": "gulp-make-css-url-version",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "replace version for images in css files",
   "license": "MIT",
   "repository": {
@@ -29,6 +29,6 @@
   },
   "license": "MIT",
   "homepage": "https://github.com/hellopao/gulp_plugin",
-  "_id": "gulp-make-css-url-version@0.0.10",
+  "_id": "gulp-make-css-url-version@0.0.11",
   "_from": "gulp-make-css-url-version@"
 }

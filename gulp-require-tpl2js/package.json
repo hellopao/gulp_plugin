@@ -1,6 +1,6 @@
 {
   "name": "gulp-require-tpl2js",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "convert tpl file content to js for requirejs",
   "license": "MIT",
   "repository": {
@@ -28,6 +28,6 @@
   },
   "license": "MIT",
   "homepage": "https://github.com/hellopao/gulp_plugin",
-  "_id": "gulp-require-tpl2js@0.0.3",
+  "_id": "gulp-require-tpl2js@0.0.4",
   "_from": "gulp-require-tpl2js@"
 }

@@ -1,6 +1,6 @@
 {
   "name": "gulp-utf8-convert",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "description": "convert file encoding to utf8",
   "license": "MIT",
   "repository": {
@@ -31,6 +31,6 @@
   },
   "license": "MIT",
   "homepage": "https://github.com/hellopao/gulp_plugin",
-  "_id": "gulp-utf8-convert@0.0.5",
+  "_id": "gulp-utf8-convert@0.0.7",
   "_from": "gulp-utf8-convert@"
 }

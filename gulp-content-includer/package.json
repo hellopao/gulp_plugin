@@ -1,6 +1,6 @@
 {
   "name": "gulp-content-includer",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "include files",
   "license": "MIT",
   "repository": {
@@ -30,6 +30,6 @@
   },
   "license": "MIT",
   "homepage": "https://github.com/hellopao/gulp_plugin",
-  "_id": "gulp-content-includer@0.0.2",
+  "_id": "gulp-content-includer@0.0.3",
   "_from": "gulp-content-includer@"
 }
