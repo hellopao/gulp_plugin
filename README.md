@@ -22,3 +22,7 @@ convert tpl files content to js for requirejs
 ###gulp-content-includer
 
 include files
+
+###gulp-asset-rev
+
+replace asset's filename by adding file hash
