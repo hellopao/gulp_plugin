@@ -49,50 +49,44 @@ gulp.task('default',['rev']);
 
 before: test.css
 <pre>
-body{background:url('../images/bg.png')}
+    body{background:url('../images/bg.png')}
 </pre>
 
 after: test.css
 <pre>
-body{background:url("../images/bg_2769acd.png"}
+    body{background:url("../images/bg_2769acd.png"}
 </pre>
 
 before: test.html
-<pre>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8"/>
-    <title></title>
-    <link rel="stylesheet" href="./styles/test.css" type="text/css" />
-</head>
-<body>
-    <div>
-        <img src="./images/test.png" />
-    </div>
-    <script src="./scripts/test.js" type="text/javascript"></script>
-</body>
-</html>
-</pre>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <title></title>
+        <link rel="stylesheet" href="./styles/test.css" type="text/css" />
+    </head>
+    <body>
+        <div>
+            <img src="./images/test.png" />
+        </div>
+        <script src="./scripts/test.js" type="text/javascript"></script>
+    </body>
+    </html>
 
 after: test.html
 
-<pre>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8"/>
-    <title></title>
-    <link rel="stylesheet" href="./styles/test_0ede2cf.css" type="text/css" />
-</head>
-<body>
-    <div>
-        <img src="./images/test_25cf2b4.png" />
-    </div>
-    <script src="./scripts/test_8ced4e6.js" type="text/javascript"></script>
-</body>
-</html>
-</pre>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <title></title>
+        <link rel="stylesheet" href="./styles/test_0ede2cf.css" type="text/css" />
+    </head>
+    <body>
+        <div>
+            <img src="./images/test_25cf2b4.png" />
+        </div>
+        <script src="./scripts/test_8ced4e6.js" type="text/javascript"></script>
+    </body>
+    </html>
 
 
 

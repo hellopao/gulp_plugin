@@ -9,13 +9,13 @@ npm install gulp-make-css-url-version
 ###Usage
 
 <pre>
-var makeUrlVer = require('gulp-make-css-url-version');
+    var makeUrlVer = require('gulp-make-css-url-version');
 
-gulp.task('stylesheets', function() {
-  gulp.src('css/*.css')
-    .pipe(makeUrlVer())
-    .pipe(gulp.dest('dist'))
-});
+    gulp.task('stylesheets', function() {
+        gulp.src('css/*.css')
+            .pipe(makeUrlVer())
+            .pipe(gulp.dest('dist'))
+    });
 </pre>
 
 ###Options
@@ -27,8 +27,8 @@ useDate :make version with time stamp
 
     gulp.task('stylesheets', function() {
         gulp.src('css/*.css')
-        .pipe(makeUrlVer({useDate:true}))
-        .pipe(gulp.dest('dist'))
+            .pipe(makeUrlVer({useDate:true}))
+            .pipe(gulp.dest('dist'))
     });
 </pre>
 
@@ -37,15 +37,15 @@ useDate :make version with time stamp
 before: index.css
 
 <pre>
-/* loading */
-.i-loading{width:32px;height:32px;background:url(../images/loading.gif) no-repeat;}    
+    /* loading */
+    .i-loading{width:32px;height:32px;background:url(../images/loading.gif) no-repeat;}    
 </pre>
 
 after: index.css
 
 <pre>
-/* loading */
-.i-loading{width:32px;height:32px;background:url(../images/loading.gif?v=Je0sUcMH0mhJPWdZdpHzXg%3D%3D) no-repeat}
+    /* loading */
+    .i-loading{width:32px;height:32px;background:url(../images/loading.gif?v=Je0sUcMH0mhJPWdZdpHzXg%3D%3D) no-repeat}
 </pre>
 
 

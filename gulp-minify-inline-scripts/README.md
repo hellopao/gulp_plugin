@@ -9,20 +9,19 @@ npm install gulp-minify-inline-scripts
 ###Usage
 
 <pre>
-var minifyInline = require('gulp-minify-inline-scripts');
+    var minifyInline = require('gulp-minify-inline-scripts');
 
-gulp.task('minify', function() {
-  gulp.src('html/*.html')
-    .pipe(minifyInline())
-    .pipe(gulp.dest('dist'))
-});
+    gulp.task('minify', function() {
+        gulp.src('html/*.html')
+            .pipe(minifyInline())
+            .pipe(gulp.dest('dist'))
+    });
 </pre>
 
 ###Example
 
 before: index.html
     
-    <!DOCTYPE html>
     <html lang="en">
     <head>
     <meta charset="utf-8"/>
@@ -46,10 +45,8 @@ before: index.html
     </body>
     </html>
 
-
 after:index.html
 
-    <!DOCTYPE html>
     <html lang="en">
     <head>
         <meta charset="utf-8"/>
