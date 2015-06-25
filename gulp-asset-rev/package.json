@@ -1,6 +1,6 @@
 {
   "name": "gulp-asset-rev",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "replace asset's filename by adding file hash",
   "license": "MIT",
   "repository": {
@@ -28,6 +28,6 @@
     "through2": "^0.6.1"
   },
   "homepage": "https://github.com/hellopao/gulp_plugin",
-  "_id": "gulp-asset-rev@0.0.4",
+  "_id": "gulp-asset-rev@0.0.5",
   "_from": "gulp-asset-rev@"
 }
