@@ -58,6 +58,8 @@ module.exports = function(options) {
                     var verStr = (options.verConnecter || "-") + md5;
                     
                     src = src.replace(verStr,'').replace(/(\.[^\.]+)$/, verStr + "$1");
+                } else {
+                    return str;
                 }
                 
                 return tag + '"' + src + '"';
