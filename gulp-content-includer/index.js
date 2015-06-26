@@ -16,6 +16,8 @@ module.exports = function(options) {
 
         options = options || {};
 
+        var showLog = options.showLog;
+
         if (file.isNull()) {
             this.push(file);
             return cb();
@@ -53,7 +55,7 @@ module.exports = function(options) {
                         };
                     })
                     .catch(function(e) {
-                        gutil.log(gutil.colors.red('[ERROR] read include file failed, ' + e));
+                        showLog && gutil.log(gutil.colors.red('[ERROR] read include file failed, ' + e));
                     });
 
                 promises.push(promise);
@@ -61,7 +63,7 @@ module.exports = function(options) {
                 return tempKey;
             });
         } catch (err) {
-            gutil.log(gutil.colors.red('[ERROR] replace include failed, ' + e));
+            showLog && gutil.log(gutil.colors.red('[ERROR] replace include failed, ' + e));
         }
 
         Promise.all(promises)
