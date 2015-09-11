@@ -43,6 +43,11 @@ module.exports = function(options) {
             content = content.replace(ASSET_REG[type],function (str,tag,src) {
                 src = src.replace(/\?[\s\S]+$/,'');
 
+                if (options.verStr) {
+                    src += options.verStr;
+                    return tag + '"' + src + '"';
+                }
+                
                 var assetPath = path.join(filePath,src);
                 
                 if (src.indexOf('/') == 0) {

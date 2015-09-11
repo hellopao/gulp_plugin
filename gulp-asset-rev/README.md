@@ -32,6 +32,9 @@ Type: `String` default: '-'
 ### rootPath: it should be assigned when the asset's path is an absolute path
 Type: `String` default: ""
 
+### verStr: use custom version string 
+Type: `String` 
+
 ## Example
 
 ```js
