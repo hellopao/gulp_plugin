@@ -34,6 +34,20 @@ gulp.task('stylesheets', function() {
 });
 ```
 
+assetsDir: specify the public directory for correct MD5 calculation in some specific cases
+
+```js
+var makeUrlVer = require('gulp-make-css-url-version');
+
+gulp.task('stylesheets', function() {
+    gulp.src('css/*.css')
+        .pipe(makeUrlVer({
+            assetsDir: __dirname + '/public'
+        }))
+        .pipe(gulp.dest('dist'))
+});
+```
+
 ## Example
 
 ### before: index.css
