@@ -13,7 +13,7 @@ var ASSET_REG = {
     "SCRIPT" : /(<script[^>]+src=)['"]([^'"]+)["']/ig,
     "STYLESHEET" : /(<link[^>]+href=)['"]([^'"]+)["']/ig,
     "IMAGE" : /(<img[^>]+src=)['"]([^'"]+)["']/ig,
-    "BACKGROUND" : /(url\()['"]?(?!data:|http:|about:)([^)]*)/ig
+    "BACKGROUND" : /(url\()(?!data:|http:|about:)([^)]*)/ig
 };
 
 var createHash = function (file,len) {
@@ -41,8 +41,8 @@ module.exports = function(options) {
 
         for (var type in ASSET_REG) {
             content = content.replace(ASSET_REG[type],function (str,tag,src) {
-                src = src.replace(/\?[\s\S]+$/,'');
-
+                src = src.replace(/\?[\s\S]+$/,'').replace(/(^['"]|['"]$)/g,'');
+                
                 if (options.verStr) {
                     src += options.verStr;
                     return tag + '"' + src + '"';

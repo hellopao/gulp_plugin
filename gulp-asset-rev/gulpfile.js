@@ -9,7 +9,7 @@ gulp.task('rev',['revCss'],function() {
 
 gulp.task('revCss',function () {
     return gulp.src('./test/styles/test.css')
-        .pipe(assetRev())
+        .pipe(assetRev({verStr:"?d=20153022"}))
         .pipe(gulp.dest('./dest/styles/'))
 });
 
