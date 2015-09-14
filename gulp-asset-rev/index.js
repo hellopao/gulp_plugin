@@ -13,7 +13,7 @@ var ASSET_REG = {
     "SCRIPT" : /(<script[^>]+src=)['"]([^'"]+)["']/ig,
     "STYLESHEET" : /(<link[^>]+href=)['"]([^'"]+)["']/ig,
     "IMAGE" : /(<img[^>]+src=)['"]([^'"]+)["']/ig,
-    "BACKGROUND" : /(url\()['"]?(?!data:|http:|about:)([\w@\-\/\.]+)['"]?/ig
+    "BACKGROUND" : /(url\()['"]?(?!data:|http:|about:)([^)]*)/ig
 };
 
 var createHash = function (file,len) {
