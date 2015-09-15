@@ -13,7 +13,7 @@ var ASSET_REG = {
     "SCRIPT" : /(<script[^>]+src=)['"]([^'"]+)["']/ig,
     "STYLESHEET" : /(<link[^>]+href=)['"]([^'"]+)["']/ig,
     "IMAGE" : /(<img[^>]+src=)['"]([^'"]+)["']/ig,
-    "BACKGROUND" : /(url\()(?!data:|http:|about:)([^)]*)/ig
+    "BACKGROUND" : /(url\()(?!data:|about:)([^)]*)/ig
 };
 
 var createHash = function (file,len) {
@@ -46,6 +46,11 @@ module.exports = function(options) {
                 if (options.verStr) {
                     src += options.verStr;
                     return tag + '"' + src + '"';
+                }
+                
+                // remote resource
+                if (/^https?:\/\//.test(src)) {
+                    return str;
                 }
                 
                 var assetPath = path.join(filePath,src);
