@@ -16,6 +16,9 @@ Type: `RegExp`
 ### baseSrc: basedir of the source
 Type: `String` 
 
+### deepConcat concat content recursive
+Type: `Boolean` default : false
+
 ## Usage
 
 ```js

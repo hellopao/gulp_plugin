@@ -1,12 +1,9 @@
 var path = require('path');
 var util = require('util');
-
+var fs = require('fs');
 
 var gutil = require('gulp-util');
 var through = require('through2');
-var Promise = require('bluebird');
-var guid = require('guid');
-
 
 var PLUGIN_NAME = 'gulp-content-includer';
 
@@ -37,49 +34,35 @@ module.exports = function(options) {
         }
 
         var content = file.contents.toString();
-
-        var promises = [];
-
-        try {
-            content = content.replace(includerReg, function(str, includeSrc) {
-                var fs = Promise.promisifyAll(require('fs'));
-
-                var tempKey = guid.raw();
-
-                includeSrc = path.join(options.baseSrc || "", includeSrc);
-                var promise = fs.readFileAsync(includeSrc)
-                    .then(function(data) {
-                        return {
-                            key: tempKey,
-                            value: data.toString()
-                        };
-                    })
-                    .catch(function(e) {
-                        showLog && gutil.log(gutil.colors.red('[ERROR] read include file failed, ' + e));
-                    });
-
-                promises.push(promise);
-
-                return tempKey;
+        
+        var replaceContent = function (content,dir){
+            content = content.replace(includerReg, function(str, src) {
+                if (/^[\\\/]/.test(src)) {
+                    src = path.join(options.baseSrc || "",src);
+                } else {
+                    src = path.join(path.dirname(dir),src);   
+                }                  
+                
+                try {
+                    var fileContent = fs.readFileSync(src,'utf8');    
+                    
+                    if (options.deepConcat && includerReg.test(fileContent)) {
+                        return replaceContent(fileContent,src);
+                    }          
+                    return fileContent;
+                } catch (err) {
+                    gutil.log(gutil.colors.red('[ERROR] the file %s required by %s is not exsist'),src,dir);
+                    return str;
+                }
+            
             });
-        } catch (err) {
-            showLog && gutil.log(gutil.colors.red('[ERROR] replace include failed, ' + e));
+            return content;
         }
-
-        Promise.all(promises)
-            .then(function(map) {
-                map.forEach(function(obj) {
-                    content = content.replace(obj.key, obj.value);
-                });
-
-                file.contents = new Buffer(content);
-                self.push(file);
-                cb();
-            })
-            .catch(function(e) {
-                gutil.log(gutil.colors.red('[ERROR] concat file failed, ' + e));
-                self.push(file);
-                cb();
-            });
+        
+        content = replaceContent(content,file.path);
+        
+        file.contents = new Buffer(content);
+        this.push(file);
+        cb();
     });
 };
