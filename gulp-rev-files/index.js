@@ -26,7 +26,7 @@ module.exports = function(options) {
 			return cb();
 		}
 
-		var hash = createHash(file.contents,options.hashLen || 8);
+		var hash = createHash(file.contents,options.hashLen || 7);
 		
 		file.path = file.path.replace(/(\.[^\.]+)$/,(options.verConnecter || "-") + hash + "$1");
 
