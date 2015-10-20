@@ -43,6 +43,9 @@ module.exports = function(options) {
             content = content.replace(ASSET_REG[type],function (str,tag,src) {
                 src = src.replace(/\?[\s\S]+$/,'').replace(/(^['"]|['"]$)/g,'');
                 
+                if (!/\.[^\.]+$/.test(src)) {
+                    return src;
+                }
                 if (options.verStr) {
                     src += options.verStr;
                     return tag + '"' + src + '"';
