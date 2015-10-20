@@ -56,7 +56,11 @@ module.exports = function(options) {
                 var assetPath = path.join(filePath,src);
                 
                 if (src.indexOf('/') == 0) {
-                    assetPath = (options.rootPath || "") + src;
+                    if (options.resolvePath && typeof options.resolvePath === "function") {
+                        assetPath = options.resolvePath(src);
+                    } else {
+                        assetPath = (options.rootPath || "") + src;                  
+                    }
                 }
 
                 if (fs.existsSync(assetPath)) {
