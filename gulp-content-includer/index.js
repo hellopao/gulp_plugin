@@ -38,7 +38,11 @@ module.exports = function(options) {
         var replaceContent = function (content,dir){
             content = content.replace(includerReg, function(str, src) {
                 if (/^[\\\/]/.test(src)) {
-                    src = path.join(options.baseSrc || "",src);
+                    if (options.resolvePath && typeof options.resolvePath === "function") {
+                        src = options.resolvePath(src);
+                    } else {
+                        src = path.join(options.baseSrc || "",src);
+                    }                 
                 } else {
                     src = path.join(path.dirname(dir),src);   
                 }                  
