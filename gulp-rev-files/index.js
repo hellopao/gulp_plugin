@@ -25,10 +25,12 @@ module.exports = function(options) {
 			this.emit('error', new gutil.PluginError(PLUGIN_NAME, 'Streaming not supported'));
 			return cb();
 		}
-
-		var hash = createHash(file.contents,options.hashLen || 7);
 		
-		file.path = file.path.replace(/(\.[^\.]+)$/,(options.verConnecter || "-") + hash + "$1");
+		if (!(typeof options.filter === "function"  && options.filter(file.path))) {
+			var hash = createHash(file.contents,options.hashLen || 7);
+		
+			file.path = file.path.replace(/(\.[^\.]+)$/,(options.verConnecter || "-") + hash + "$1");
+		}	
 
         this.push(file);
 		cb();

@@ -1,6 +1,6 @@
 {
   "name": "gulp-rev-files",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "replace filename by adding file hash",
   "license": "MIT",
   "repository": {
@@ -27,6 +27,6 @@
     "through2": "^0.6.1"
   },
   "homepage": "https://github.com/hellopao/gulp_plugin",
-  "_id": "gulp-rev-files@0.0.2",
+  "_id": "gulp-rev-files@0.0.3",
   "_from": "gulp-rev-files@"
 }
