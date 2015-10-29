@@ -47,7 +47,7 @@ module.exports = function (options) {
                     src = src.replace(/\?[\s\S]+$/, '').replace(/(^['"]|['"]$)/g, '');
 
                     if (!/\.[^\.]+$/.test(src)) {
-                        return src;
+                        return str;
                     }
                     if (options.verStr) {
                         src += options.verStr;
