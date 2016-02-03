@@ -68,11 +68,10 @@ module.exports = function (options) {
         var promises = [];
 
         html = html.replace(/url\("?([^\)"]+)"?\)/g, function (str, url) {
+            
+            url = url.replace(/['"]*/g, "").replace(/#[\s\S]*$/,'');
 
-            url = url.replace(/\?[\s\S]*$/, "").trim();
-            url = url.replace(/['"]*/g, "");
-
-            if (url.indexOf("base64,") > -1 || url.indexOf("about:blank") > -1 || url.indexOf("http://") > -1 || url === '/') {
+            if (url.indexOf("base64,") > -1 || url.indexOf("about:blank") > -1 || url.indexOf("http://") > -1 || url === '/' || url === '') {
                 return str;
             }
 
@@ -84,12 +83,11 @@ module.exports = function (options) {
             }
 
             //use md5
-            var safeUrl = url.replace(/#[\s\S]*$/,'');
             var imageFilePath;
             if (options.assetsDir) {
-                imageFilePath = path.join(options.assetsDir, safeUrl);
+                imageFilePath = path.join(options.assetsDir, url);
             } else {
-                imageFilePath = path.resolve(path.dirname(file.path), safeUrl);
+                imageFilePath = path.resolve(path.dirname(file.path), url);
             }
 
             var tempKey = Math.random().toString();
