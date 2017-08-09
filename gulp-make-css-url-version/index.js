@@ -76,7 +76,7 @@ module.exports = function (options) {
                 return str;
             }
 
-            var format = options.format || "yyyy-MM-dd";
+            var format = options.format || "yyyyMMddhmmss";
 
             //use date as the version
             if (options.useDate) {
